@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Car {
+public class Car extends Transport {
     private final String brand;
     private final String model;
     private float engineVolume;
@@ -15,8 +15,8 @@ public class Car {
     private final int placeCount;
     private boolean winterTires;
 
-    private  Key key;
-    private  Insurance insurance;
+    private final Key key;
+    private final Insurance insurance;
 
     public Car(String brand,
                String model,
@@ -28,7 +28,9 @@ public class Car {
                String bodyType,
                String regNumber,
                int placeCount,
-               boolean winterTires, Key key, Insurance insurance) {
+               boolean winterTires,
+               Key key,
+               Insurance insurance) {
         this.brand = ValidationUtils.validOrDefault(brand, "default");
         this.model = ValidationUtils.validOrDefault(model, "default");
         this.productionYear = productionYear >= 0 ? productionYear : 2000;
@@ -143,21 +145,21 @@ public class Car {
         this.winterTires = winterTires;
     }
 
-    public Key getKey() {
-        return key;
-    }
-
-    public Insurance getInsurance() {
-        return insurance;
-    }
-
-    public void setKey(Key key) {
-        this.key = key;
-    }
-
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
-    }
+//    public Key getKey() {
+//        return key;
+//    }
+//
+//    public Insurance getInsurance() {
+//        return insurance;
+//    }
+//
+//    public void setKey(Key key) {
+//        this.key = key;
+//    }
+//
+//    public void setInsurance(Insurance insurance) {
+//        this.insurance = insurance;
+//    }
 
     @Override
     public String toString() {
@@ -171,11 +173,10 @@ public class Car {
                 ", gearBox= " + gearBox +
                 ", bodyType= " + bodyType +
                 ", regNumber= " + regNumber +
-                " " +
-                ", placeCout= " + placeCount+
+                ", placeCount= " + placeCount+
                 ", winterTires= " + winterTires +
-                ", key= " + key +
-                ", insurance= " + insurance +
+                ", key= " + key + // адрес а не значение
+                ", insurance= " + insurance + //адрес а не значение
                 '}';
     }
 
@@ -201,7 +202,7 @@ private final boolean keylessAccess;
         }
 
         public boolean ilNumberValid() {
-            return number.length() ==9;
+            return number.length() == 9;
         }
         public  boolean isInsuranceValid() {
             return LocalDate.now().isBefore(this.validUntil);
