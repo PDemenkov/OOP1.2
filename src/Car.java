@@ -1,12 +1,12 @@
 import java.time.LocalDate;
 
 public class Car extends Transport {
-    private final String brand;
-    private final String model;
+//    private final String brand;
+//    private final String model;
     private float engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCounty;
+//    private String color;
+//    private final int productionYear;
+//    private final String productionCounty;
 
     private String gearBox;
     private final String bodyType;
@@ -31,10 +31,11 @@ public class Car extends Transport {
                boolean winterTires,
                Key key,
                Insurance insurance) {
-        this.brand = ValidationUtils.validOrDefault(brand, "default");
-        this.model = ValidationUtils.validOrDefault(model, "default");
-        this.productionYear = productionYear >= 0 ? productionYear : 2000;
-        this.productionCounty = ValidationUtils.validOrDefault(productionCounty, "default");
+        super(brand,model,productionYear,productionCounty,color);
+//        this.brand = ValidationUtils.validOrDefault(brand, "default");
+//        this.model = ValidationUtils.validOrDefault(model, "default");
+//        this.productionYear = productionYear >= 0 ? productionYear : 2000;
+//        this.productionCounty = ValidationUtils.validOrDefault(productionCounty, "default");
         this.bodyType = ValidationUtils.validOrDefault(bodyType, "type");
         this.placeCount = Math.max(placeCount, 1);
         this.key = key;
@@ -81,13 +82,13 @@ public class Car extends Transport {
         this.winterTires = winterTires;
     }
 
-    public String getBrand() {
-        return brand;
-    }
+//    public String getBrand() {
+//        return brand;
+//    }
 
-    public String getModel() {
-        return model;
-    }
+//    public String getModel() {
+//        return model;
+//    }
 
     public float getEngineVolume() {
         return engineVolume;
@@ -97,21 +98,21 @@ public class Car extends Transport {
         this.engineVolume = engineVolume > 0.0f ? engineVolume : 1.5f;
     }
 
-    public String getColor() {
-        return color;
-    }
+//    public String getColor() {
+//        return color;
+//    }
+//
+//    public void setColor(String color) {
+//        this.color = ValidationUtils.validOrDefault(color, "white");
+//    }
 
-    public void setColor(String color) {
-        this.color = ValidationUtils.validOrDefault(color, "white");
-    }
+//    public int getProductionYear() {
+//        return productionYear;
+//    }
 
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCounty() {
-        return productionCounty;
-    }
+//    public String getProductionCounty() {
+//        return productionCounty;
+//    }
 
     public String getGearBox() {
         return gearBox;
@@ -164,19 +165,19 @@ public class Car extends Transport {
     @Override
     public String toString() {
         return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
+                "brand='" + getBrand() + '\'' +
+                ", model='" + getModel() + '\'' +
                 ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCounty='" + productionCounty + '\'' +
+                ", color='" + getColor() + '\'' +
+                ", productionYear=" + getProductionYear() +
+                ", productionCounty='" + getProductionCounty() + '\'' +
                 ", gearBox= " + gearBox +
                 ", bodyType= " + bodyType +
                 ", regNumber= " + regNumber +
                 ", placeCount= " + placeCount+
                 ", winterTires= " + winterTires +
-                ", key= " + key + // адрес а не значение
-                ", insurance= " + insurance + //адрес а не значение
+                ", key= " + " Удаленный запуск: " + key.remoteEngineStart + " Безключевой доступ " + key.keylessAccess +
+                ", insurance= " + insurance.isInsuranceValid() + insurance.ilNumberValid() +
                 '}';
     }
 

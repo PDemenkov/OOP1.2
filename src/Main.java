@@ -1,4 +1,5 @@
 import javax.security.auth.kerberos.KerberosTicket;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,5 +27,16 @@ public class Main {
 //        Car hyundai  = new Car("Hyundai ","Avante",1.6f,"",2016,"South Korea");
 
         System.out.println(lada);
+
+        Train last = new Train("Lastochka", "B-901", 2011, "Russia", 3500, "Пара часов", "Белорусский вокзал", "Минск-Пассажирский", 11,301);
+        Train len = new Train("Leningrad", "D-125", 2019, "Russia", 1700, "Пара часов", "Ленинградский вокзал", "Ленинград-Пассажирский", 8,270);
+
+        System.out.println(last.getBrand());
+
+        Bus bus1 = new Bus("Brand", "Model", 2020, "Russia", "Green", 120);
+        Bus bus2 = new Bus("Brand2", "Model2", 2014, "Finland", "White", 120);
+        Bus bus3 = new Bus("Brand3", "Model3", 2016, "China", "Red", 120);
+
+        System.out.println();
     }
 }
