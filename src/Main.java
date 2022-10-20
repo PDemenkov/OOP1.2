@@ -17,6 +17,7 @@ public class Main {
         Car hyundai = new Car("Hyundai", "Avante", 1.6, "orange", 2016, "South Korea");
 
         printInfo(lada);
+        System.out.println(lada);
     }
 
     private static void printInfo(Car car) {
@@ -28,7 +29,7 @@ public class Main {
                         ", объем двигателя: " + car.getEngineVolume() +
                         ", коробка передач: " + car.getGears() +
                         ", тип кузова:" + car.getTypeOfBody() +
-                        ", рег.номер: " + car.getRegNumber() +
+                        ", рег.номер: " + car.getRegNumber() + " проверка: " + car.isCorrectRegNumber() +
                         ", количество мест " + car.getSeatsCount() +
                         ", " + (car.isSummerTyres() ? "летняя" : "зимняя") + "Резина" +
                         ", " + (car.getKey().isStartWithoutKey() ? "безключевой доступ" : "ключевой доступ") +
