@@ -36,7 +36,7 @@ public class Car {
     private final int seatsCount;
     private boolean summerTyres;
 
-    public Car(String brand,
+    public  Car(String brand,
                String model,
                double engineVolume,
                String color,
