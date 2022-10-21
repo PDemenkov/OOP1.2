@@ -7,4 +7,9 @@ public class Bus extends Transport{
     public void print() {
         super.print();
     }
+
+    @Override
+    public void refill() {
+        System.out.println("Объекты класса bus можно заправлять бензином или дизелем на заправке");
+    }
 }

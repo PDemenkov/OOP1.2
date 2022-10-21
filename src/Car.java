@@ -181,6 +181,11 @@ public class Car extends Transport {
                 '}';
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Можно заправлять бензином, дизелем на заправке или заряжать на специальных электропарковках, если это электрокар");
+    }
+
     public static class Key {
 private final boolean remoteEngineStart;
 private final boolean keylessAccess;

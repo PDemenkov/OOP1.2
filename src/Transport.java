@@ -1,4 +1,4 @@
-public class Transport {
+public abstract class Transport {
 
     private final String brand;
     private final String model;
@@ -66,4 +66,6 @@ public class Transport {
                 " Цвет: " + getColor() +
                 " Максимальная скорость: " + getMaxSpeed());
     }
+
+    public abstract void refill();
 }

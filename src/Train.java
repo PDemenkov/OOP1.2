@@ -64,4 +64,9 @@ public class  Train extends Transport{
         );
     }
 
+    @Override
+    public void refill() {
+        System.out.println("Нужно заправлять дизелем");
+    }
+
 }
