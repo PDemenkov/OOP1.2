@@ -7,7 +7,7 @@ public class Transport {
     private final String productionCounty;
 
     private String color;
-    private int maxSpeed;
+    private final int maxSpeed;
 
 //    public Transport(String brand, String model, String productionCounty) {
 //        this(brand, model,0,"","");
@@ -22,7 +22,7 @@ public class Transport {
         this.productionYear = productionYear >= 0 ? productionYear : 2000;
         this.productionCounty = ValidationUtils.validOrDefault(productionCounty, "default");
         setColor(color);
-        this.maxSpeed = maxSpeed;
+        this.maxSpeed = Math.max(maxSpeed, 0);
     }
 
 
@@ -55,8 +55,15 @@ public class Transport {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+//    public void setMaxSpeed(int maxSpeed) {
+//        this.maxSpeed = maxSpeed;
+//    }
+    public void print() {
+        System.out.println("Марка: " + getBrand() +
+                " Модель: " + getModel() +
+                " Год производства: " + getProductionYear() +
+                " Страна производства: " + getProductionCounty() +
+                " Цвет: " + getColor() +
+                " Максимальная скорость: " + getMaxSpeed());
     }
-
 }
