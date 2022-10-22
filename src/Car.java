@@ -1,13 +1,7 @@
 import java.time.LocalDate;
 
 public class Car extends Transport {
-//    private final String brand;
-//    private final String model;
     private float engineVolume;
-//    private String color;
-//    private final int productionYear;
-//    private final String productionCounty;
-
     private String gearBox;
     private final String bodyType;
     private String regNumber;
@@ -31,11 +25,7 @@ public class Car extends Transport {
                boolean winterTires,
                Key key,
                Insurance insurance) {
-        super(brand,model,productionYear,productionCounty,color);
-//        this.brand = ValidationUtils.validOrDefault(brand, "default");
-//        this.model = ValidationUtils.validOrDefault(model, "default");
-//        this.productionYear = productionYear >= 0 ? productionYear : 2000;
-//        this.productionCounty = ValidationUtils.validOrDefault(productionCounty, "default");
+        super(brand, model, productionYear, productionCounty, color);
         this.bodyType = ValidationUtils.validOrDefault(bodyType, "type");
         this.placeCount = Math.max(placeCount, 1);
         this.key = key;
@@ -82,14 +72,6 @@ public class Car extends Transport {
         this.winterTires = winterTires;
     }
 
-//    public String getBrand() {
-//        return brand;
-//    }
-
-//    public String getModel() {
-//        return model;
-//    }
-
     public float getEngineVolume() {
         return engineVolume;
     }
@@ -97,22 +79,6 @@ public class Car extends Transport {
     public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume > 0.0f ? engineVolume : 1.5f;
     }
-
-//    public String getColor() {
-//        return color;
-//    }
-//
-//    public void setColor(String color) {
-//        this.color = ValidationUtils.validOrDefault(color, "white");
-//    }
-
-//    public int getProductionYear() {
-//        return productionYear;
-//    }
-
-//    public String getProductionCounty() {
-//        return productionCounty;
-//    }
 
     public String getGearBox() {
         return gearBox;
@@ -146,22 +112,6 @@ public class Car extends Transport {
         this.winterTires = winterTires;
     }
 
-//    public Key getKey() {
-//        return key;
-//    }
-//
-//    public Insurance getInsurance() {
-//        return insurance;
-//    }
-//
-//    public void setKey(Key key) {
-//        this.key = key;
-//    }
-//
-//    public void setInsurance(Insurance insurance) {
-//        this.insurance = insurance;
-//    }
-
     @Override
     public String toString() {
         return "Car{" +
@@ -174,10 +124,10 @@ public class Car extends Transport {
                 ", gearBox= " + gearBox +
                 ", bodyType= " + bodyType +
                 ", regNumber= " + regNumber +
-                ", placeCount= " + placeCount+
+                ", placeCount= " + placeCount +
                 ", winterTires= " + winterTires +
                 ", key= " + " Удаленный запуск: " + key.remoteEngineStart + " Безключевой доступ " + key.keylessAccess +
-                ", insurance= " + insurance.isInsuranceValid() + insurance.ilNumberValid() +
+                ", insurance= " + " Страховка действует: " + insurance.isInsuranceValid() + " Номер верный: " + insurance.ilNumberValid() +
                 '}';
     }
 
@@ -187,8 +137,8 @@ public class Car extends Transport {
     }
 
     public static class Key {
-private final boolean remoteEngineStart;
-private final boolean keylessAccess;
+        private final boolean remoteEngineStart;
+        private final boolean keylessAccess;
 
         public Key(boolean remoteEngineStart, boolean keylessAccess) {
             this.remoteEngineStart = remoteEngineStart;
@@ -202,15 +152,16 @@ private final boolean keylessAccess;
         private final String number;
 
         public Insurance(LocalDate validUntil, float cost, String number) {
-            this.validUntil = validUntil !=null ? validUntil : LocalDate.now().plusDays(10);
-            this.cost = Math.max(cost,1f);
-            this.number = ValidationUtils.validOrDefault(number,"default");
+            this.validUntil = validUntil != null ? validUntil : LocalDate.now().plusDays(10);
+            this.cost = Math.max(cost, 1f);
+            this.number = ValidationUtils.validOrDefault(number, "default");
         }
 
         public boolean ilNumberValid() {
             return number.length() == 9;
         }
-        public  boolean isInsuranceValid() {
+
+        public boolean isInsuranceValid() {
             return LocalDate.now().isBefore(this.validUntil);
         }
     }
