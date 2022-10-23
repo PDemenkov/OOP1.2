@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
+        Car.Key ladaKey = new Car.Key(false, false);
+        Car.Key justKey = new Car.Key(true,true);
 
         Car lada = new Car("Lada",
                 "Granta",
@@ -15,7 +17,7 @@ public class Main {
                 "sedan",
                 "s456vf344",
                 4,true,
-                new Car.Key(true,true),
+                ladaKey,
                 new Car.Insurance(LocalDate.of(2022,12,20),10000,"123456789"));
         System.out.println(lada.isRegNumberValid());
 
